@@ -16,6 +16,9 @@ app.use(cors({
     credentials: true
 }))
 
+app.use("*", (req, res) => {
+    res.sendFile("public/index.html")
+})
 app.use("/api/user", require("./routes/userRoutes"))
 app.use("/api/employee", require("./routes/employeeRoutes"))
 app.use("/api/appointment", require("./routes/AppointmentRoutes"))
